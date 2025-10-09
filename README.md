@@ -1,0 +1,120 @@
+# 🤖 Agentic Document QA System
+
+An **intelligent multi-modal assistant** that can process and analyze content from **PDFs**, **Images**, and **YouTube videos**, allowing you to **ask natural language questions**, perform **semantic search**, and **generate financial and statistical visualizations** related to the Renault Group.
+
+---
+
+## 🚀 Functional Overview
+
+### Supported Content Types:
+- 📄 **PDF documents**
+- 🖼️ **Images** (JPG, PNG, TIFF — with OCR extraction)
+- 🎥 **YouTube videos** (automatic transcription + indexing)
+
+---
+
+### You Can:
+- Upload and process **PDFs** or **Images** via the Streamlit app  
+- Provide a **YouTube URL** for automatic audio transcription  
+- Ask **natural language questions** across all indexed content  
+- Trigger **auto-generated charts** for:
+  - 📊 Renault stock vs CAC40 index  
+  - 🚗 Vehicles sold per year  
+  - 📈 Correlation between vehicle sales and stock prices  
+
+---
+
+## 🧩 Architecture Overview
+
+### `application/chatbot.py`
+Main **Streamlit app** providing:
+- File uploader (for PDFs and images)
+- YouTube video ingestion
+- Integrated Q&A interface
+- Conversation history viewer
+
+The app orchestrates file processing through specialized handlers:
+- `download_and_process_pdfs(pdf_file)`
+- `download_and_process_images(image_file)`
+- `download_and_process_youtube_contents(yt_url)`
+
+---
+
+### `src/agents`
+Core AI logic and analytics modules:
+- **`qa_agent.py`** →  
+  Powers Q&A via:
+  - FAISS vector search  
+  - `HuggingFaceEmbeddings` (`sentence-transformers/all-MiniLM-L6-v2`)  
+  - Hugging Face **Inference API** for natural language answers
+- **`analyzer_agent.py`** →  
+  Finds correlation between Renault sales and stock prices  
+- **`comparator_agent.py`** →  
+  Compares Renault stock vs CAC40 index  
+- **`vehicle_sales_visualizer_agent.py`** →  
+  Visualizes annual vehicle sales  
+
+---
+
+### `src/handlers`
+Bridges between the user interface and vectorization modules:
+- **`pdf_handler.py`** → Handles uploaded PDFs: saves + vectorizes + indexes  
+- **`ocr_handler.py`** → OCR extraction for uploaded images  
+- **`youtube_handler.py`** → Downloads, transcribes, and indexes YouTube videos  
+- **`visualizer_handler.py`** → Dispatches graph generation for Streamlit  
+
+---
+
+### `src/vectorizers`
+Each vectorizer extracts, splits, embeds, and indexes text using FAISS:
+- `pdf_vectorizer_agent.py`
+- `ocr_vectorizer_agent.py`
+- `youtube_vectorizer_agent.py`
+
+> All embeddings are generated with:  
+> **`sentence-transformers/all-MiniLM-L6-v2`**
+
+---
+
+### `src/utils`
+Low-level utilities for data extraction and preparation:
+- `extract_pdf_content.py` → Text & table extraction  
+- `text_splitter.py` → Chunking large documents  
+- `transcribe_youtube_audio.py` → Audio download + transcription  
+- `vehicles_sold_per_year_extraction.py` → Extracts Renault annual sales data  
+- `announcement_dates_extraction.py` → Finds report publication dates  
+
+---
+
+## 📂 Data & Output Organization
+
+---
+
+## Data & Output
+
+### `src/data`
+To organize the generated files:
+- `data/pdfs/`, `data/images/`, `data/youtube/` → Raw content
+- `data/vector_indices/` → FAISS indexes for fast semantic search
+- `data/graphs/` → Generated plots (saved if not using Streamlit)
+- `data/financial_results/` → Generated announcement days and vehicles sold csv files
+
+## Requirements
+sudo apt-get install tesseract-ocr
+To install dependencies (ensure you have **Python ≥ 3.10**):
+pip install -r requirements.txt
+
+---
+
+## Environment Varibles
+HUGGINGFACE_TOKEN=your_huggingface_api_token_here
+
+---
+
+## How to Launch
+
+### Run via **Streamlit Application**
+For running the Streamlit application, I rely on an LLM API model accessed through my Hugging Face token. This is because my local laptop lacks the hardware resources required to run large models efficiently. 
+To run a web interface:
+
+**streamlit run app.py**

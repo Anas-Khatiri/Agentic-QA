@@ -1,0 +1,55 @@
+[project]
+name = "Agentic_QA"
+version = "0.1.0"
+description = "Description de votre projet"
+authors = [
+    { name = "Anas KHATIRI", email = "khatiri.anas.96@gmail.com" },
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "pdfplumber==0.9.0",
+    "faiss-cpu==1.11.0",
+    "langchain==0.3.25",
+    "langchain-community==0.3.24",
+    "langchain-huggingface==0.2.0",
+    "huggingface-hub==0.34.0",
+    "transformers==4.52.3",
+    "streamlit==1.45.1",
+    "torch",
+    "torchvision",
+    "python-dotenv",
+    "requests==2.32.4",
+    "pandas",
+    "urllib3==2.4.0",
+    "yt-dlp==2025.5.22",
+    "faster-whisper==1.1.1",
+    "yfinance==0.2.61",
+    "matplotlib==3.10.3",
+    "sentence-transformers==4.1.0",
+    "accelerate",
+    "bitsandbytes",
+    "hf-xet",
+    "tf-keras",
+    "pytesseract",
+    "Pillow",
+    "opencv-python",
+    "langgraph",
+    "pypdf",
+    "openai",
+    "numpy"
+]
+
+[tool.ruff]
+line-length = 200
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F", "I", "C", "B", "D", "UP", "YTT", "ANN", "ASYNC", "AIR", "ARG",
+    "BLE", "COM", "DTZ", "EM", "ICN", "INP", "ISC", "NPY", "PD", "PGH",
+    "PIE", "PL", "PT", "PTH", "PYI", "Q", "RSE", "RUF", "S", "SIM", "TCH", "TID",
+    "TRY", "D211", "D212"
+]
+ignore = ["COM812", "ISC001", "D203", "D213", "D100", "D104", "ANN101", "TCH003"]
