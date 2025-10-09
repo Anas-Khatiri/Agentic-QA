@@ -1,6 +1,6 @@
 # 🤖 Agentic Document QA System
 
-An **intelligent multi-modal assistant** that can process and analyze content from **PDFs**, **Images**, and **YouTube videos**, allowing you to **ask natural language questions**, perform **semantic search**, and **generate financial and statistical visualizations** related to the Renault Group.
+An **intelligent multi-modal assistant** that can process and analyze content from **PDFs**, **Images**, and **YouTube videos**, allowing you to **ask natural language questions**.
 
 ---
 
