@@ -3,6 +3,7 @@ venv/
 
 # Python cache and bytecode
 __pycache__/
+.env/
 
 # Logs and temporary files
 *.log
