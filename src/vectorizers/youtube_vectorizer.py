@@ -58,5 +58,5 @@ class YBVectorizerAgent:
                     vectorstore.save_local(index_path)
                     print(f"Saved FAISS index to {index_path}")
 
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 print(f"Error processing {yb_txt_file.name}: {exc}")

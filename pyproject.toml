@@ -39,7 +39,8 @@ dependencies = [
     "langgraph",
     "pypdf",
     "openai",
-    "numpy"
+    "numpy",
+    "pdfminer"
 ]
 
 [tool.ruff]
@@ -52,4 +53,4 @@ select = [
     "PIE", "PL", "PT", "PTH", "PYI", "Q", "RSE", "RUF", "S", "SIM", "TCH", "TID",
     "TRY", "D211", "D212"
 ]
-ignore = ["COM812", "ISC001", "D203", "D213", "D100", "D104", "ANN101", "TCH003"]
+ignore = ["COM812", "ISC001", "D203", "D213", "D100", "D104", "ANN101", "TCH003", "BLE001"]

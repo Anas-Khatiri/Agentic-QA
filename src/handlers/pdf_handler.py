@@ -52,6 +52,6 @@ def download_and_process_pdfs(pdf_file: object | None = None) -> None:
         index_path = Config.paths.INDEX_DIR / f"index_faiss_{index_name}"
         st.success(f"💾 Saved FAISS index for `{pdf_path.name}` to `{index_path}`")
 
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         error_msg = f"Error processing `{pdf_file.name}`. Exception: {exc}"
         st.error(f"❌ {error_msg}")

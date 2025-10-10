@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pandas as pd
 import pdfplumber
-from pdfplumber.pdfparser import PDFSyntaxError
+from pdfminer.pdfparser import PDFSyntaxError
 
 from configs.config import Config
 
@@ -55,7 +55,7 @@ def extract_dates_from_pdf_dir(directory: Path) -> list[dict[str, str]]:
         try:
             with pdfplumber.open(file_path) as pdf:
                 text = "\n".join(page.extract_text() or "" for page in pdf.pages)
-        except (PDFSyntaxError, OSError) as e:
+        except (OSError, PDFSyntaxError, ValueError) as e:
             print(f"Failed to read PDF {file_path.name}: {e}")
             continue
 

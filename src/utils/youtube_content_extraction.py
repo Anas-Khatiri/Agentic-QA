@@ -64,7 +64,7 @@ def transcribe_youtube_audio(
     except yt_dlp.utils.DownloadError as e:
         print(f"yt-dlp Download Error: {e}")
         return None
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         print(f"Unexpected error during download: {exc}")
         return None
 

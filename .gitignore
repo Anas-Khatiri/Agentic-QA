@@ -5,6 +5,13 @@ venv/
 __pycache__/
 .env/
 
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
 # Logs and temporary files
 *.log
 *.tmp

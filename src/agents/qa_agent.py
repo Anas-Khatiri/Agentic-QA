@@ -86,6 +86,6 @@ class QAAgent:
             text: str = completion.choices[0].message["content"]
             return text.split("Answer:")[-1].strip() if "Answer:" in text else text.strip()
 
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             error_msg = f"Error generating answer. Question: {question!r}. Exception: {exc}"
             return f"❌ {error_msg}"
