@@ -1,7 +1,7 @@
 [project]
 name = "Agentic_QA"
 version = "0.1.0"
-description = "Description de votre projet"
+description = "Agentic Document QA"
 authors = [
     { name = "Anas KHATIRI", email = "khatiri.anas.96@gmail.com" },
 ]
@@ -54,3 +54,13 @@ select = [
     "TRY", "D211", "D212"
 ]
 ignore = ["COM812", "ISC001", "D203", "D213", "D100", "D104", "ANN101", "TCH003", "BLE001"]
+
+# ---------------------------------------------
+# Semantic release configuration
+# ---------------------------------------------
+[tool.semantic_release]
+version_variable = "pyproject.toml:version"
+upload_to_pypi = false
+branch = "main"
+commit_parser = "angular"
+build_command = false
