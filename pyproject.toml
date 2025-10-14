@@ -62,5 +62,5 @@ ignore = ["COM812", "ISC001", "D203", "D213", "D100", "D104", "ANN101", "TCH003"
 version_variable = "pyproject.toml:version"
 upload_to_pypi = false
 branch = "main"
-commit_parser = "angular"
-build_command = false
+commit_parser = "conventional"
+build_command = ""
